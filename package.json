@@ -21,5 +21,7 @@
     "url": "https://github.com/bouzuya/bopara/issues"
   },
   "homepage": "https://github.com/bouzuya/bopara",
-  "devDependencies": {}
+  "devDependencies": {
+    "cordova": "^3.4.0-0.1.3"
+  }
 }
