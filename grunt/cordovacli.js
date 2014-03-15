@@ -24,9 +24,15 @@ module.exports = {
       action: 'add'
     }
   },
-  build_android: {
+  prepare_android: {
     options: {
-      command: 'build',
+      command: 'prepare',
+      platforms: ['android']
+    }
+  },
+  compile_android: {
+    options: {
+      command: 'compile',
       platforms: ['android']
     }
   }
