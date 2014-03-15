@@ -18,6 +18,8 @@ module.exports = {
     'cordovacli:create',
     'cordovacli:add_platforms',
     'cordovacli:add_plugins',
-    'cordovacli:build_android',
+    'cordovacli:prepare_android',
+    'copy:android_icons',
+    'cordovacli:compile_android',
   ]
 };
