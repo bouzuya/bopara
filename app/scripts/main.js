@@ -17,7 +17,7 @@
   };
 
   $(document).ready(function() {
-    var isMobileDevice = (window.location.protocol === 'http:');
+    var isMobileDevice = (window.location.protocol !== 'http');
     if (isMobileDevice) {
       $(document).one('deviceready', onDeviceReady);
     } else {
