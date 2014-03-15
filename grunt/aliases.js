@@ -7,7 +7,8 @@ module.exports = {
     'package'
   ],
   validate: [],
-  compile: [],
+  compile: 'compile:html5',
   test: [],
-  package: []
+  package: [],
+  'compile:html5': 'copy:html5',
 };

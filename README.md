@@ -31,7 +31,7 @@ Build
 
 ### compile:html5
 
-    $ cp -r $src $dist
+    $ grunt compile:html5
 
 ### compile:native
 
