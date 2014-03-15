@@ -7,7 +7,7 @@
       'Device Model   : ' + window.device.model,
       'Device Cordova : ' + window.device.cordova,
       'Device Platform: ' + window.device.platform,
-      'Device UUID    : ' + window.device.uuid,
+      // 'Device UUID    : ' + window.device.uuid,
       'Device Version : ' + window.device.version,
     ].forEach(function(info) {
       var $li = $('<li>' + info + '</li>');
