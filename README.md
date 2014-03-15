@@ -3,6 +3,11 @@ bopara
 
 The paradise of bouzuya.
 
+License
+------------------------------------------------------------------------------
+
+ISC
+
 Build
 ------------------------------------------------------------------------------
 
@@ -15,4 +20,10 @@ Build
 
     $ npm install
     $ $(npm bin)/grunt
+
+### Bump version
+
+- package.json version
+- app/config.xml version
+- grunt/sed.js versionCode
 
