@@ -26,6 +26,7 @@
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-cordovacli": "git://github.com/bouzuya/grunt-cordovacli",
+    "grunt-sed": "^0.1.1",
     "load-grunt-config": "^0.7.2"
   }
 }

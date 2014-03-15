@@ -20,6 +20,7 @@ module.exports = {
     'cordovacli:add_plugins',
     'cordovacli:prepare_android',
     'copy:android_icons',
+    'sed:androidVersionCode',
     'cordovacli:compile_android',
   ]
 };
