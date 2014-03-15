@@ -1,0 +1,31 @@
+{
+  "name": "bopara",
+  "version": "0.0.1",
+  "description": "The paradise of bouzuya.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bouzuya/bopara.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "bouzuya",
+    "email": "bouzuya@gmail.com",
+    "url": "http://bouzuya.net/"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bouzuya/bopara/issues"
+  },
+  "homepage": "https://github.com/bouzuya/bopara",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-cordovacli": "git://github.com/bouzuya/grunt-cordovacli",
+    "load-grunt-config": "^0.7.2"
+  }
+}
