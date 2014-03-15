@@ -1,5 +1,6 @@
 module.exports = {
   default: [
+    'clean',
     'validate',
     'compile',
     'test',

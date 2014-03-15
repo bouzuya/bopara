@@ -23,11 +23,11 @@ Build
 
 ### clean:html5
 
-    $ rm -rf $dist
+    $ grunt clean:html5
 
 ### clean:native
 
-    $ rm -rf $cordova_dir
+    $ grunt clean:native
 
 ### compile:html5
 
