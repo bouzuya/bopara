@@ -16,19 +16,28 @@
 
     showDeviceInfo();
 
-    $('#home').addClass('center');
+    $('#home').css('z-index', 0);
 
     var viewStack = [];
 
     var pushView = function(id) {
       viewStack.push(id);
       $view = $(id);
-      $view.css('z-index', viewStack.length).addClass('center');
+      $view.one('webkitAnimationEnd', function() {
+        $view.removeClass('righttocenter');
+      });
+      $view.addClass('righttocenter');
+      $view.css({ 'z-index': viewStack.length });
     };
 
     var popView = function() {
       var id = viewStack.shift();
-      $(id).removeClass('center');
+      $view = $(id);
+      $view.one('webkitAnimationEnd', function() {
+        $view.removeClass('centertoright');
+        $view.css({ 'z-index': -10 });
+      });
+      $view.addClass('centertoright');
     };
 
     $(document).on('click', '.about-button', function() {
@@ -41,7 +50,7 @@
   };
 
   $(document).ready(function() {
-    var isMobileDevice = (window.location.protocol !== 'http:');
+    var isMobileDevice = !/^http:/.test(window.location.href);
     if (isMobileDevice) {
       $(document).one('deviceready', onDeviceReady);
     } else {
