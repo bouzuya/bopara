@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - "0.10"
+env:
+  - secure: "FHw8NB7Nx0Ch+PY3yWftdSyLljdvjpXC/hyQu2qCaF6c4PPQKvsOV18N/HPYG9LCx6zC0JIZE/QPEZxrRiuapqGFUkKc6c9tJ3OLgqSQ0rJb3RIzL6BM4czUc513TJ+ot7Hj/uhP3vpcLVF6LwmUksSU2gYXpjZpOZveoqFiiUs="
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq libstdc++6:i386 lib32z1
+  - wget http://dl.google.com/android/android-sdk_r22-linux.tgz
+  - tar xzf android-sdk_r22-linux.tgz
+  - export ANDROID_HOME=${PWD}/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/build-tools/android-4.4
+  - echo -e "y\n" | android update sdk --no-ui --force --filter platform-tools,build-tools-19.0.3,android-19
+  - if [ ! -e ${ANDROID_HOME}/platform-tools/aapt ]; then ln -s ${ANDROID_HOME}/build-tools/android-4.4/aapt ${ANDROID_HOME}/platform-tools/aapt; fi
+  - if [ ! -e ${ANDROID_HOME}/platform-tools/aidl ]; then ln -s ${ANDROID_HOME}/build-tools/android-4.4/aidl ${ANDROID_HOME}/platform-tools/aidl; fi
+before_script:
+  - node -v
+  - npm -v
+  - $(npm bin)/grunt -V
+  - javac -version
+  - ant -version
+  - android list sdk --no-ui
+  - android list target
+script:
+  - $(npm bin)/grunt 
+  - cd cordova/platforms/android/ 
+  - ant release
+after_success:
+  - $(npm bin)/grunt deploygate:android
+

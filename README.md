@@ -3,23 +3,27 @@ bopara
 
 The paradise of bouzuya.
 
+[![Build Status](https://travis-ci.org/bouzuya/bopara.png)](https://travis-ci.org/bouzuya/bopara)
+
 License
 ------------------------------------------------------------------------------
 
 ISC
 
-Build
+Build & Deploy
 ------------------------------------------------------------------------------
-
-### Requirement 
-
-    $ sudo apt-get install -y openjdk-7-jdk ant
-    $ PATH=$PATH:/path/to/android/sdk/tools/
 
 ### Build
 
     $ npm install
     $ $(npm bin)/grunt
+
+### Deploy
+
+See .travis.yml
+
+Note
+------------------------------------------------------------------------------
 
 ### Bump version
 
