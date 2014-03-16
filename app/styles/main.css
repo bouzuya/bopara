@@ -48,6 +48,7 @@ html, body {
 }
 
 .page {
+  transform: translateX(100%);
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +60,8 @@ html, body {
 
   color: #000;
   background-color: #fff;
-  z-index: 0;
+
+  transition: 0.5s ease;
 }
 
 .page .content {
@@ -68,8 +70,6 @@ html, body {
   overflow: auto;
 }
 
-#about {
-  transform: translateX(100%);
-  display: none;
+.center {
+  transform: translateX(0%);
 }
-

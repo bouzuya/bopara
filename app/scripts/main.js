@@ -1,19 +1,43 @@
 (function() {
 
+  var showDeviceInfo = function() {
+    if (!window.device) {
+      return;
+    }
+    console.log(window.device.name);
+    console.log(window.device.model);
+    console.log(window.device.cordova);
+    console.log(window.device.platform);
+    console.log(window.device.uuid);
+    console.log(window.device.version);
+  };
+
   var onDeviceReady = function() {
-    var $ul = $('<ul></ul>');
-    [
-      'Device Name    : ' + window.device.name,
-      'Device Model   : ' + window.device.model,
-      'Device Cordova : ' + window.device.cordova,
-      'Device Platform: ' + window.device.platform,
-      // 'Device UUID    : ' + window.device.uuid,
-      'Device Version : ' + window.device.version,
-    ].forEach(function(info) {
-      var $li = $('<li>' + info + '</li>');
-      $ul.append($li);
+
+    showDeviceInfo();
+
+    $('#home').addClass('center');
+
+    var viewStack = [];
+
+    var pushView = function(id) {
+      viewStack.push(id);
+      $view = $(id);
+      $view.css('z-index', viewStack.length).addClass('center');
+    };
+
+    var popView = function() {
+      var id = viewStack.shift();
+      $(id).removeClass('center');
+    };
+
+    $(document).on('click', '.about-button', function() {
+      pushView('#about');
     });
-    $('body').append($ul);
+
+    $(document).on('click', '.back-button', function() {
+      popView();
+    });
   };
 
   $(document).ready(function() {
