@@ -4,7 +4,7 @@ module.exports = {
       'app/*',
       'app/**'
     ],
-    tasks: [],
+    tasks: ['compile:native_www'],
     options: {
       spawn: true,
       interrupt: false,

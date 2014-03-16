@@ -35,4 +35,11 @@ module.exports = function(grunt) {
       done();
     });
   });
+
+  grunt.registerTask('compile:native_www', function() {
+    var fs = require('fs');
+    if (fs.existsSync('cordova')) {
+      grunt.task.run(['compile:html5', 'cordovacli:prepare_android']);
+    }
+  });
 };
