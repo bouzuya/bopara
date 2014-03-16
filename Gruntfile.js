@@ -8,7 +8,7 @@ module.exports = function(grunt) {
         },
         android: {
           token: process.env.DEPLOYGATE_TOKEN,
-          file: 'cordova/platforms/android/bin/bopara-release-unsigned.apk'
+          file: 'cordova/platforms/android/bin/bopara-debug.apk'
         }
       }
     }

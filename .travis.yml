@@ -5,7 +5,7 @@ env:
   - secure: "FHw8NB7Nx0Ch+PY3yWftdSyLljdvjpXC/hyQu2qCaF6c4PPQKvsOV18N/HPYG9LCx6zC0JIZE/QPEZxrRiuapqGFUkKc6c9tJ3OLgqSQ0rJb3RIzL6BM4czUc513TJ+ot7Hj/uhP3vpcLVF6LwmUksSU2gYXpjZpOZveoqFiiUs="
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libstdc++6:i386 lib32z1
+  - sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch
   - wget http://dl.google.com/android/android-sdk_r22-linux.tgz
   - tar xzf android-sdk_r22-linux.tgz
   - export ANDROID_HOME=${PWD}/android-sdk-linux
@@ -24,7 +24,7 @@ before_script:
 script:
   - $(npm bin)/grunt 
   - cd cordova/platforms/android/ 
-  - ant release
+  - ant debug
 after_success:
   - $(npm bin)/grunt deploygate:android
 
