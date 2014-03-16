@@ -10,8 +10,13 @@ License
 
 ISC
 
-Build & Deploy
+Develop & Build & Deploy
 ------------------------------------------------------------------------------
+
+### Develop
+
+    $ npm install
+    $ $(npm bin)/grunt develop
 
 ### Build
 
