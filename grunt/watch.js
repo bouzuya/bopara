@@ -15,7 +15,7 @@ module.exports = {
       forever: true,
       // dateFormat: 
       atBegin: false,
-      livereload: 35729
+      livereload: 35729,
       cwd: process.cwd(),
       livereloadOnError: true
     }
