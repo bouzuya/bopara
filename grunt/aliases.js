@@ -22,5 +22,10 @@ module.exports = {
     'copy:android_icons',
     'sed:androidVersionCode',
     'cordovacli:compile_android',
+  ],
+  develop: [
+    'connect:develop',
+    'watch:develop'
   ]
+
 };

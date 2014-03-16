@@ -1,23 +1,56 @@
 (function() {
 
+  var showDeviceInfo = function() {
+    if (!window.device) {
+      return;
+    }
+    console.log(window.device.name);
+    console.log(window.device.model);
+    console.log(window.device.cordova);
+    console.log(window.device.platform);
+    console.log(window.device.uuid);
+    console.log(window.device.version);
+  };
+
   var onDeviceReady = function() {
-    var $ul = $('<ul></ul>');
-    [
-      'Device Name    : ' + window.device.name,
-      'Device Model   : ' + window.device.model,
-      'Device Cordova : ' + window.device.cordova,
-      'Device Platform: ' + window.device.platform,
-      // 'Device UUID    : ' + window.device.uuid,
-      'Device Version : ' + window.device.version,
-    ].forEach(function(info) {
-      var $li = $('<li>' + info + '</li>');
-      $ul.append($li);
+
+    showDeviceInfo();
+
+    $('#home').css('z-index', 0);
+
+    var viewStack = [];
+
+    var pushView = function(id) {
+      viewStack.push(id);
+      $view = $(id);
+      $view.one('webkitAnimationEnd', function() {
+        $view.removeClass('righttocenter');
+      });
+      $view.addClass('righttocenter');
+      $view.css({ 'z-index': viewStack.length });
+    };
+
+    var popView = function() {
+      var id = viewStack.shift();
+      $view = $(id);
+      $view.one('webkitAnimationEnd', function() {
+        $view.removeClass('centertoright');
+        $view.css({ 'z-index': -10 });
+      });
+      $view.addClass('centertoright');
+    };
+
+    $(document).on('click', '.about-button', function() {
+      pushView('#about');
     });
-    $('body').append($ul);
+
+    $(document).on('click', '.back-button', function() {
+      popView();
+    });
   };
 
   $(document).ready(function() {
-    var isMobileDevice = (window.location.protocol !== 'http');
+    var isMobileDevice = !/^http:/.test(window.location.href);
     if (isMobileDevice) {
       $(document).one('deviceready', onDeviceReady);
     } else {

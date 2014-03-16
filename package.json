@@ -1,6 +1,6 @@
 {
   "name": "bopara",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The paradise of bouzuya.",
   "main": "index.js",
   "scripts": {
@@ -23,10 +23,14 @@
   "homepage": "https://github.com/bouzuya/bopara",
   "devDependencies": {
     "grunt": "^0.4.4",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-connect": "^0.7.1",
     "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.0",
     "grunt-cordovacli": "git://github.com/bouzuya/grunt-cordovacli",
     "grunt-sed": "^0.1.1",
-    "load-grunt-config": "^0.7.2"
+    "load-grunt-config": "^0.7.2",
+    "superagent": "^0.17.0"
   }
 }
