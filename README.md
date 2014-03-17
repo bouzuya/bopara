@@ -8,7 +8,15 @@ The paradise of bouzuya.
 License
 ------------------------------------------------------------------------------
 
+### app/fonts/ShareTechMono-Regular.ttf
+
+Share Tech Mono SIL Open Font License, 1.1
+ShareTechMono-Regular.ttf: Copyright (c) 2012, Carrois Type Design, Ralph du Carrois (post@carrois.com www.carrois.com), with Reserved Font Name 'Share'
+
+### others
+
 ISC
+
 
 Develop & Build & Deploy
 ------------------------------------------------------------------------------
