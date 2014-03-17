@@ -32,6 +32,9 @@ module.exports = function(grunt) {
       if (err) {
         grunt.warn(util.inspect(err));
       }
+      if (res.statusCode !== 200) {
+        grunt.warn(res.statusCode);
+      }
       done();
     });
   });

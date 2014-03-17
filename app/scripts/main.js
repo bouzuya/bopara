@@ -1,3 +1,4 @@
+/* global $, document */
 (function() {
 
   var showDeviceInfo = function() {
@@ -22,7 +23,7 @@
 
     var pushView = function(id) {
       viewStack.push(id);
-      $view = $(id);
+      var $view = $(id);
       $view.one('webkitAnimationEnd animationend', function() {
         $view.removeClass('righttocenter');
       });
@@ -32,7 +33,7 @@
 
     var popView = function() {
       var id = viewStack.shift();
-      $view = $(id);
+      var $view = $(id);
       $view.one('webkitAnimationEnd animationend', function() {
         $view.removeClass('centertoright');
         $view.css({ 'z-index': -10 });
