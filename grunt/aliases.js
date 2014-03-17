@@ -6,7 +6,9 @@ module.exports = {
     'test',
     'package'
   ],
-  validate: [],
+  validate: [
+    'jshint'
+  ],
   compile: [
     'compile:html5',
     'compile:native',
