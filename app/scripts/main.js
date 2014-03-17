@@ -23,7 +23,7 @@
     var pushView = function(id) {
       viewStack.push(id);
       $view = $(id);
-      $view.one('webkitAnimationEnd', function() {
+      $view.one('webkitAnimationEnd animationend', function() {
         $view.removeClass('righttocenter');
       });
       $view.addClass('righttocenter');
@@ -33,7 +33,7 @@
     var popView = function() {
       var id = viewStack.shift();
       $view = $(id);
-      $view.one('webkitAnimationEnd', function() {
+      $view.one('webkitAnimationEnd animationend', function() {
         $view.removeClass('centertoright');
         $view.css({ 'z-index': -10 });
       });
