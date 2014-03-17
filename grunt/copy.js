@@ -2,7 +2,7 @@ module.exports = {
   html5: {
     expand: true,
     cwd: 'app/',
-    src: '**',
+    src: ['**', '!scripts/**', '!styles/**'],
     dest: 'dist/'
   },
   android_icons: {

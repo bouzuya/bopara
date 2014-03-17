@@ -15,7 +15,14 @@ module.exports = {
   ],
   test: [],
   package: [],
-  'compile:html5': 'copy:html5',
+  'compile:html5': [
+    'useminPrepare',
+    'concat',
+    'uglify',
+    'cssmin',
+    'copy:html5',
+    'usemin',
+  ],
   'compile:native': [
     'cordovacli:create',
     'cordovacli:add_platforms',
