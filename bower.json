@@ -1,0 +1,14 @@
+{
+  "name": "bopara",
+  "version": "0.0.3",
+  "homepage": "https://github.com/bouzuya/bopara",
+  "authors": [
+    "bouzuya <bouzuya@gmail.com>"
+  ],
+  "description": "BOUZUYA PARADISE!",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.0"
+  }
+}

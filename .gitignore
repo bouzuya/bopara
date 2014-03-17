@@ -1,3 +1,4 @@
 cordova
 dist
 node_modules
+app/scripts/vendor
