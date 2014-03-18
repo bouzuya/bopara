@@ -17,7 +17,11 @@
 
     showDeviceInfo();
 
-    $('#home').css('z-index', 0);
+    var homePage = new App.Models.HomePage();
+    var homePageView = new App.Views.HomePage({ model: homePage });
+    homePageView.render().$el.appendTo($('body'));
+
+    $('#home-page').css('z-index', 0);
 
     var viewStack = [];
 

@@ -15,7 +15,7 @@ module.exports = {
       }
     },
     files: {
-      src: ['app/*.js', 'app/**/*.js'],
+      src: ['app/script/**.js', '!app/script/vendor/**.js'],
     }
   },
   test: {

@@ -16,6 +16,7 @@ module.exports = {
   test: [],
   package: [],
   'compile:html5': [
+    'jst',
     'useminPrepare',
     'concat',
     'uglify',
@@ -34,6 +35,10 @@ module.exports = {
   ],
   develop: [
     'connect:develop',
+    'watch:develop'
+  ],
+  develop_native: [
+    'connect:develop_native',
     'watch:develop'
   ]
 
