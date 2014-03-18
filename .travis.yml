@@ -16,12 +16,14 @@ before_install:
 before_script:
   - node -v
   - npm -v
+  - $(npm bin)/bower -v
   - $(npm bin)/grunt -V
   - javac -version
   - ant -version
   - android list sdk --no-ui
   - android list target
 script:
+  - $(npm bin)/bower install
   - $(npm bin)/grunt 
   - cd cordova/platforms/android/ 
   - ant debug
