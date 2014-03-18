@@ -21,7 +21,11 @@
     var homePageView = new App.Views.HomePage({ model: homePage });
     homePageView.render().$el.appendTo($('body'));
 
-    $('#home-page').css('z-index', 0);
+    var aboutPage = new App.Models.AboutPage();
+    var aboutPageView = new App.Views.AboutPage({ model: aboutPage });
+    aboutPageView.render().$el.appendTo($('body'));
+
+    $('#home-page').css('z-index', 10);
 
     var viewStack = [];
 
@@ -32,7 +36,7 @@
         $view.removeClass('righttocenter');
       });
       $view.addClass('righttocenter');
-      $view.css({ 'z-index': viewStack.length });
+      $view.css({ 'z-index': viewStack.length * 10 });
     };
 
     var popView = function() {
@@ -40,13 +44,13 @@
       var $view = $(id);
       $view.one('webkitAnimationEnd animationend', function() {
         $view.removeClass('centertoright');
-        $view.css({ 'z-index': -10 });
+        $view.css({ 'z-index': 0 });
       });
       $view.addClass('centertoright');
     };
 
     $(document).on('click', '.about-button', function() {
-      pushView('#about');
+      pushView('#about-page');
     });
 
     $(document).on('click', '.back-button', function() {

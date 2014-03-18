@@ -1,7 +1,8 @@
 module.exports = {
   develop: {
     files: [
-      'app/**'
+      'app/**',
+      '!app/scripts/templates.js'
     ],
     tasks: ['jst'],
     options: {
