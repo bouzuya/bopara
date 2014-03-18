@@ -16,11 +16,13 @@ Develop & Build & Deploy
 ### Develop
 
     $ npm install
+    $ $(npm bin)/bower install
     $ $(npm bin)/grunt develop
 
 ### Build
 
     $ npm install
+    $ $(npm bin)/bower install
     $ $(npm bin)/grunt
 
 ### Deploy
