@@ -25,37 +25,72 @@
     var aboutPageView = new App.Views.AboutPage({ model: aboutPage });
     aboutPageView.render().$el.appendTo($('body'));
 
-    $('#home-page').css('z-index', 10);
+    var pageStack = [];
+    var pageTransition = false;
 
-    var viewStack = [];
-
-    var pushView = function(id) {
-      viewStack.push(id);
-      var $view = $(id);
-      $view.one('webkitAnimationEnd animationend', function() {
-        $view.removeClass('righttocenter');
-      });
-      $view.addClass('righttocenter');
-      $view.css({ 'z-index': viewStack.length * 10 });
+    var showPage = function($page) {
+      var css = { 'z-index': pageStack.length, visibility: 'visible' };
+      $page.css(css);
     };
 
-    var popView = function() {
-      var id = viewStack.shift();
-      var $view = $(id);
-      $view.one('webkitAnimationEnd animationend', function() {
-        $view.removeClass('centertoright');
-        $view.css({ 'z-index': 0 });
+    var hidePage = function($page) {
+      var css = { 'z-index': -10 };
+      if (window.device && window.device.platform === 'iOS') {
+        css.visibility = 'hidden';
+      }
+      $page.css(css);
+    };
+
+    var pushPage = function(id) {
+      if (pageTransition) {
+        return;
+      }
+      pageTransition = true;
+
+      var prevId = pageStack[pageStack.length - 1];
+      pageStack.push(id);
+      var $page = $(id);
+      $page.one('webkitAnimationEnd animationend', function() {
+        $page.removeClass('righttocenter');
+        if (prevId) {
+          hidePage($(prevId));
+        }
+        pageTransition = false;
       });
-      $view.addClass('centertoright');
+      $page.addClass('righttocenter');
+      showPage($page);
+    };
+
+    var popPage = function() {
+      if (pageTransition) {
+        return;
+      }
+      pageTransition = true;
+
+      var id = pageStack.pop();
+      var prevId = pageStack[pageStack.length - 1];
+      var $page = $(id);
+      $page.one('webkitAnimationEnd animationend', function() {
+        $page.removeClass('centertoright');
+        hidePage($page);
+        pageTransition = false;
+      });
+      if (prevId) {
+        showPage($(prevId));
+      }
+      $page.addClass('centertoright');
     };
 
     $(document).on('click', '.about-button', function() {
-      pushView('#about-page');
+      pushPage('#about-page');
     });
 
     $(document).on('click', '.back-button', function() {
-      popView();
+      popPage();
     });
+
+    pushPage('#home-page');
+
   };
 
   $(document).ready(function() {
