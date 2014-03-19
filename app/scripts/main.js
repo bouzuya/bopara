@@ -13,7 +13,35 @@
     console.log(window.device.version);
   };
 
+  var GA = function(options) {
+    if (!window.plugins || !window.plugins.gaPlugin) {
+      return;
+    }
+
+    var plugin = window.plugins.gaPlugin;
+    plugin.init(
+      function() { this.plugin = plugin; }.bind(this),
+      function() {},
+      options.id,
+      options.period
+    );
+  };
+
+  GA.prototype.track = function(url) {
+    if (!this.plugin) {
+      return;
+    }
+
+    this.plugin.trackPage(
+      function() {},
+      function() {},
+      url
+    );
+  };
+
   var onDeviceReady = function() {
+
+    var ga = new GA({ id: 'UA-49100579-1', period: 10 });
 
     showDeviceInfo();
 
@@ -46,6 +74,8 @@
         return;
       }
       pageTransition = true;
+
+      ga.track(id);
 
       var prevId = pageStack[pageStack.length - 1];
       pageStack.push(id);

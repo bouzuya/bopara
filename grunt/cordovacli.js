@@ -4,7 +4,11 @@ module.exports = {
     id: 'net.bouzuya.bopara',
     name: 'bopara',
     platforms: ['android'],
-    plugins: ['org.apache.cordova.device']
+    plugins: [
+      '../cordova-plugins/net.bouzuya.cordova.config',
+      'org.apache.cordova.device',
+      'https://github.com/bouzuya/GAPlugin.git'
+    ]
   },
   create: {
     options: {
